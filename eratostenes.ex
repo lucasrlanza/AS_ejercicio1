@@ -1,5 +1,5 @@
 # Implementacion secuencial de primos/1
-defmodule Erastotenes do
+defmodule Eratostenes do
 
   @spec primos(integer()) :: list(integer())
   def primos(n) when n < 2, do: [] # Si n es menor de 2, no hay números primos
