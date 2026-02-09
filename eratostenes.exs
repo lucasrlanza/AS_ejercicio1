@@ -32,3 +32,18 @@ end
 
 
 #Test rapidos para comprobar que funciona (no se muy bien como prorbarlos pero puedes hacer elixir eratostenes.exs y va )
+IO.puts("=== Criba de Eratóstenes ===\n")
+
+IO.inspect(Erastotenes.primos(10), label: "Primos hasta 10")
+IO.inspect(Erastotenes.primos(30), label: "Primos hasta 30")
+IO.inspect(Erastotenes.primos(100), label: "Primos hasta 100")
+
+IO.puts("\n=== Tests ===")
+assert Erastotenes.primos(2) == [2]
+IO.puts("✓ primos(2) = [2]")
+
+assert Erastotenes.primos(10) == [2, 3, 5, 7]
+IO.puts("✓ primos(10) = [2, 3, 5, 7]")
+
+assert Erastotenes.primos(20) == [2, 3, 5, 7, 11, 13, 17, 19]
+IO.puts("✓ primos(20) = [2, 3, 5, 7, 11, 13, 17, 19]")
