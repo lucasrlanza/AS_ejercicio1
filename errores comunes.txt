@@ -1,0 +1,55 @@
+primos(n) # unica funcion publica, el resto privadas
+-> criba(numeros(n))
+    print(-) # No sentido, deberia devolver una lista de, no printear nada
+
+concatenacion de listas # evitar si se puede
+[, , ,] ++ [, , ,]
+numeros(n) -> numeros(2, n)
+
+numeros(n, n) -> [n]
+numeros(m, n) -> [m | numeros(m+1, n)]
+
+Definicion funcion (usar clausulas en vez de if/case)
+foo()               filtrar(_primo, []) -> []   # variables anonimas: _variable -> dice a compilador que hace falta, pero no se va a usar para nada
+    if/case
+    .           ->  filtrar(primo, [h | t]) when h rem primo == 0
+    .               -> filtrar(primo, t)
+    .
+                    filtrar(primo, [h | t])   # No necesaria guarda, ya esta comprobada encima
+                    -> [h | filtrar(primo, t)]
+
+x = 1
+    x -> 1
+
+[h | t] = [1, 2, 3]
+    h -> 1
+    t -> [2, 3]
+
+spawn(loop) # spawn nunca falla, siempre crea proceso -> la funcion si que puede fallar
+    loop()
+        receive # es bloqueante, se queda esperando
+            patron1 -> .
+                       .
+                       .
+                       loop()
+            patron2 -> .
+                       .
+                       .
+            .
+            .
+            .
+        end
+
+tuplas: {:atomo, pid()} -> atomo: es el tipo de mensaje
+                           pid: identificador de proceso que espera la respuesta
+                           {:fin, pid()}
+
+self() -> devuelve id proceso donde ejec self
+
+send(pid(), ...) -> funcion enviar mensaje (proceso, mensaje a enviar)
+
+receive tiene opcion: after
+                        -> .
+                           .    -> evita entrar en bucles infinitos mediante un timeout
+                           .
+
